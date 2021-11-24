@@ -1,0 +1,21 @@
+.intro {
+  color: #777777;
+  background-image: url(https://cdn.pixabay.com/photo/2015/05/31/12/14/iphone-791450_1280.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  padding: 4% 18%;
+  background-repeat: no-repeat;
+}
+.intro p {
+  font-size: 20px;
+  font-weight: 400;
+  text-align: start;
+  line-height: 2;
+}
+.intro h2 {
+  color: #dfb729;
+  padding-top: 20%;
+  font-size: 40px;
+  letter-spacing: 6px;
+}

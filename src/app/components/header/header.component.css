@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 17%;
+}
+.header-logo {
+  font-size: 20px;
+  color: #dfb729;
+  font-weight: 600;
+}
+.icon-cart{
+  float: right;
+  background-image: url(./img/shopping-venture.jpg);
+  width: 25px;
+  height: 26px;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  margin-right: 20px;
+}
+li {
+  list-style: none;
+}
+#myTopnav{
+
+  margin: 10% 0;
+}
+#myTopnav a {
+  color: #363636;
+}
