@@ -3,29 +3,38 @@ import { CardModel } from 'src/app/models/card.model';
 import { cardMock } from 'src/app/mock/card.mock';
 import { cartMock } from 'src/app/mock/cart.mock';
 import { CartModel } from 'src/app/models/cart.model';
+import { CardsService } from 'src/app/services/cards.service';
+import { CartService } from 'src/app/services/cart.service';
+import { CardsModule } from './cards.module';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent {
+export class CardsComponent implements OnInit{
   Title ="Наши товары";
-  Cart: CartModel[] = cartMock;
-  Cards: CardModel[] = cardMock;
+
+  Cart: CartModel[]= cartMock;
+  Cards: CardModel[];
+  constructor(private cardService: CardsService){
+
+  }
+  ngOnInit(): void{
+
+    this.Cards = this.cardService.getCards();
+
+  }
+
+
   addToCart(id: number){
-    const card = this.Cards.find((item: CardModel)=>{
-      this.Cart.push({
-        id: this.Cart.length + 1,
-        name: item.name,
-        price: item.price,
+    const buyCard = this.Cards.find((card)=>{
+      return card.id ===id;
+    });
+    if(buyCard){
+      this.cardService.moveToCart(buyCard);
+      this.Cards = this.Cards.filter((item: CardModel)=>{
+        return item.id !==id;
       });
-
-      return item.id === id;
-    })
-    if(card){
-      //передать данные карточки в массив корзины
-      console.log(card.id+" "+ card.name+" " +card.price);
     }
-
   }
 }

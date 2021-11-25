@@ -9,12 +9,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { IntroComponent } from './components/intro/intro.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { FormsModule } from '@angular/forms';
+import { CardsModule } from './components/cards/cards.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
-    CardsComponent,
     HeaderComponent,
     IntroComponent,
     FooterComponent,
@@ -22,7 +22,9 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CardsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

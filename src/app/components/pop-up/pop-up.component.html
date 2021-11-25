@@ -11,8 +11,9 @@
     </div>
     <div class="popup-list">
       <ul class="popup-list-name">
+        <app-card *ngFor = "let item of Cards" [Card]= "item" ></app-card>
 
-     </ul>
+      </ul>
   </div>
     <button class="popup-list-btn">Купить</button>
   </div>

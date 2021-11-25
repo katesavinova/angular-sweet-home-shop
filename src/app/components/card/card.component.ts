@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
   @Output() add: EventEmitter<number> = new EventEmitter<number>();
 
   addToCart(): void{
+    console.log("clikced");
     this.add.emit(this.Card.id);
   };
   constructor() { }
