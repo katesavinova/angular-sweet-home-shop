@@ -15,24 +15,24 @@ export class CardsComponent implements OnInit{
   Title ="Наши товары";
 
   Cart: CartModel[]= cartMock;
-  Cards: CardModel[];
+  cards: CardModel[];
   constructor(private cardService: CardsService){
 
   }
   ngOnInit(): void{
 
-    this.Cards = this.cardService.getCards();
+    this.cards = this.cardService.getCards();
 
   }
 
 
   addToCart(id: number){
-    const buyCard = this.Cards.find((card)=>{
+    const buyCard = this.cards.find((card)=>{
       return card.id ===id;
     });
     if(buyCard){
       this.cardService.moveToCart(buyCard);
-      this.Cards = this.Cards.filter((item: CardModel)=>{
+      this.cards = this.cards.filter((item: CardModel)=>{
         return item.id !==id;
       });
     }

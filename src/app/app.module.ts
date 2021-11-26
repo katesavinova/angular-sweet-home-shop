@@ -11,6 +11,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { FormsModule } from '@angular/forms';
 import { CardsModule } from './components/cards/cards.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CardDitailsComponent } from './components/card-ditails/card-ditails.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CardsModule } from './components/cards/cards.module';
     HeaderComponent,
     IntroComponent,
     FooterComponent,
-    PopUpComponent
+    PopUpComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

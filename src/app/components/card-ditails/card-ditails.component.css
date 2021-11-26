@@ -1,0 +1,25 @@
+.card-ditails{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+.card-ditails-name{
+  text-align: center;
+  margin-top: 20%;
+  font-size: 30px;
+  color: rgb(255, 217, 0);
+}
+.ditail{
+  text-align: center;
+  margin-top: 2%;
+  font-size: 25px;
+  color: rgb(77, 77, 77);
+}
+h1{
+  color: rgb(21, 63, 39);
+  letter-spacing: 2px;
+}

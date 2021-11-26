@@ -1,12 +1,16 @@
 <div class="card">
   <div class="card-img">
-    <img class="card-img-src" src="{{Card.src}}"/>
+    <img class="card-img-src" src="{{card.src}}"/>
   </div>
   <div class="card-info">
-      <p class="card-title">{{Card.name}}</p>
+      <p class="card-title">{{card.name}}</p>
       <div class="card-info-price">
         <p class="price-title">Цена</p>
-        <p class="price-title-price" style="color: #dfb729">{{Card.price}}</p>
+        <p class="price-title-price" style="color: #dfb729">{{card.price}}</p>
       </div>
-      <button type="button" class="card-info-btn" (click)="addToCart()">КУПИТЬ</button>
+      <div class="all-btn">
+        <button type="button" class="card-info-btn" (click)="addToCart()" *ngIf = "!card.buy">КУПИТЬ</button>
+        <button class="card-info-btn" *ngIf = "!card.buy" routerLink="/card/{{card.id}}">ПОДРОБНЕЙ</button>
+    </div>
+
   </div>

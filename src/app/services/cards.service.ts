@@ -7,13 +7,27 @@ import { CardModel } from "../models/card.model";
 })
 export class CardsService{
   private ToCart: CardModel[]=[];
-  private activeCart: CardModel[] = [];
+  private activeCart: CardModel[] = cardMock;
   getCards(): CardModel[]{
-    return cardMock;
+    return this.activeCart;
   }
+  getCard(id: number): CardModel | null{
+     const activeCard = this.activeCart.filter((item: CardModel)=>{
+      return item.id === id;
+    });
+    if(activeCard){
+      return activeCard;
+    }else{
+        const archivedCard = this.ToCart.filter((item: CardModel)=>{
+          return item.id === id;
+      });
+      return archivedCard ? activeCard: null;
+    }
+  }
+
   moveToCart(buyCard: CardModel): void{
       this.ToCart.push({...buyCard, buy: true});
-      this.ToCart = this.ToCart.filter((item: CardModel)=>{
+      this.activeCart = this.activeCart.filter((item: CardModel)=>{
         return item.id !== buyCard.id;
       });
   }

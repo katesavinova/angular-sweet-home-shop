@@ -60,3 +60,10 @@
   background-color: #dfb729;
   color: #ffffff;
 }
+.emptyTitle{
+  margin: 5%;
+  font-size: 20px;
+  color: #363636;
+  line-height: 2.5;
+}
+

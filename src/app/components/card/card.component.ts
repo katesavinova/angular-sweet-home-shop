@@ -7,12 +7,12 @@ import { CardModel } from 'src/app/models/card.model';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() Card: CardModel;
+  @Input() card: CardModel;
   @Output() add: EventEmitter<number> = new EventEmitter<number>();
 
   addToCart(): void{
     console.log("clikced");
-    this.add.emit(this.Card.id);
+    this.add.emit(this.card.id);
   };
   constructor() { }
 
