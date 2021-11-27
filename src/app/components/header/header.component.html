@@ -2,7 +2,11 @@
     <div class="header-logo">
       <p>МилыйДом</p>
     </div>
+    <div class="serch-card">
+      <input type="text" placeholder="Поиск" [(ngModel)]="serch" (key.enter)="onSerch()">
+    </div>
     <nav>
+
       <div class="topnav" id="myTopnav">
         <a routerLink ="/home">Домой</a>
         <a href="#">О Нас</a>
@@ -16,5 +20,6 @@
           >
         </div>
       </div>
+
     </nav>
 </div>

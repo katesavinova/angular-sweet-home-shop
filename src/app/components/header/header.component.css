@@ -30,3 +30,14 @@ li {
 #myTopnav a {
   color: #363636;
 }
+
+.serch-card input{
+  width: 100%;
+  height: 30px;
+  border-radius: 40px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  border-color: rgba(244, 165, 96, 0.603);
+  transition: all 0.3s ease;
+  margin: 10px;
+}

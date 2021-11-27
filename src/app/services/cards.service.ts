@@ -12,16 +12,16 @@ export class CardsService{
     return this.activeCart;
   }
   getCard(id: number): CardModel | null{
-     const activeCard = this.activeCart.filter((item: CardModel)=>{
+     const activeCard = this.activeCart.find((item: CardModel)=>{
       return item.id === id;
     });
     if(activeCard){
       return activeCard;
     }else{
-        const archivedCard = this.ToCart.filter((item: CardModel)=>{
+        const archivedCard = this.ToCart.find((item: CardModel)=>{
           return item.id === id;
       });
-      return archivedCard ? activeCard: null;
+      return archivedCard ? archivedCard: null;
     }
   }
 
@@ -33,5 +33,11 @@ export class CardsService{
   }
   getCartData(): CardModel[]{
     return this.ToCart;
+  }
+  getActiveCard(serch:string = ''): CardModel[]{
+    return this.activeCart.filter((item:CardModel)=>{
+      return item.name.toLocaleLowerCase().includes(serch.toLocaleLowerCase())
+      || item.price.toLocaleLowerCase().includes(serch.toLocaleLowerCase());
+    });
   }
 }

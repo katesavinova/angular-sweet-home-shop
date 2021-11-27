@@ -11,16 +11,13 @@ import { CardsService } from 'src/app/services/cards.service';
 export class CardDitailsComponent implements OnInit {
   card:CardModel|null;
   constructor(private activatedRoute: ActivatedRoute,
-    private cardService: CardsService
-    ) {
-
-   }
+    private cardService: CardsService) {}
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params.id;
-    if(id){
-        this.card= this.cardService.getCard(+id);
-    }
+   // const id = this.activatedRoute.snapshot.params.id;
+    //if(id){
+      //  this.card= this.cardService.getCard(+id);
+    //}
   }
 
 }
