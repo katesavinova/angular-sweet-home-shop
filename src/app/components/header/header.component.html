@@ -3,7 +3,7 @@
       <p>МилыйДом</p>
     </div>
     <div class="serch-card">
-      <input type="text" placeholder="Поиск" [(ngModel)]="serch" (key.enter)="onSerch()">
+      <input type="text" placeholder="Поиск" [(ngModel)]="serch" (keyup.enter)="onSerch()">
     </div>
     <nav>
 
@@ -16,9 +16,10 @@
             routerLink ="/cart"
             class="icon-cart"
             id="menu-basket"
-            (click) = "showCart()"
+
           >
         </div>
+        <button type="button" (click)="changeUserStatus()" class="login">{{userLoggedIn?"Logdut":"Login"}}</button>
       </div>
 
     </nav>

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   serch ='';
+  userLoggedIn=false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -23,5 +24,9 @@ export class HeaderComponent implements OnInit {
         serch:this.serch
       }
     });
+  }
+  changeUserStatus(): void {
+    this.userLoggedIn = !this.userLoggedIn;
+    localStorage.setItem('loggedIn', String(this.userLoggedIn));
   }
 }

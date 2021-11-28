@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { cardMock } from "../mock/card.mock";
 import { CardModel } from "../models/card.model";
+import {HttpClient} from "@angular/common/http"
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { CardModel } from "../models/card.model";
 export class CardsService{
   private ToCart: CardModel[]=[];
   private activeCart: CardModel[] = cardMock;
+  constructor(private service: HttpClient){
+
+  }
   getCards(): CardModel[]{
     return this.activeCart;
   }
@@ -26,8 +30,10 @@ export class CardsService{
   }
 
   moveToCart(buyCard: CardModel): void{
-      this.ToCart.push({...buyCard, buy: true});
+       this.ToCart.push({...buyCard, buy: true});
       this.activeCart = this.activeCart.filter((item: CardModel)=>{
+
+      console.log(this.ToCart);
         return item.id !== buyCard.id;
       });
   }

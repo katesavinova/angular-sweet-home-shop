@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardModel } from 'src/app/models/card.model';
+import { CardsService } from 'src/app/services/cards.service';
 
 @Component({
   selector: 'app-card',
@@ -10,13 +11,11 @@ export class CardComponent implements OnInit {
   @Input() card: CardModel;
   @Output() add: EventEmitter<number> = new EventEmitter<number>();
 
-  addToCart(): void{
-    console.log("clikced");
-    this.add.emit(this.card.id);
-  };
-  constructor() { }
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {
   }
-
+  addToCart(){
+    this.cardsService.moveToCart(this.card);
+  }
 }

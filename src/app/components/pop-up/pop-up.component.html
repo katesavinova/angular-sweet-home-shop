@@ -12,7 +12,7 @@
     </div>
     <div *ngIf="card.length else emptyTemplate" class="popup-list">
       <ul class="popup-list-name">
-        <app-card *ngFor = "let item of cards" [card]= "item" ></app-card>
+        <app-card *ngFor = "let item of card" [card]= "item" ></app-card>
 
       </ul>
   </div>

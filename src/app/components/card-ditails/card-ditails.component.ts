@@ -14,10 +14,10 @@ export class CardDitailsComponent implements OnInit {
     private cardService: CardsService) {}
 
   ngOnInit(): void {
-   // const id = this.activatedRoute.snapshot.params.id;
-    //if(id){
-      //  this.card= this.cardService.getCard(+id);
-    //}
+   const id = this.activatedRoute.snapshot.params['id'];
+    if(id){
+       this.card= this.cardService.getCard(+id);
+    }
   }
 
 }

@@ -4,10 +4,11 @@ import { CardDitailsComponent } from './components/card-ditails/card-ditails.com
 import { CardsComponent } from './components/cards/cards.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { ArchiveGuard } from './guards/archive.guard';
 
 const routes: Routes = [
   {path: 'home', component: CardsComponent},
-  {path: 'cart', component: PopUpComponent},
+  {path: 'cart', component: PopUpComponent, canActivate: [ArchiveGuard]},
   {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path: 'card/:id', component: CardDitailsComponent},
   {path: '**', component: PageNotFoundComponent}

@@ -22,22 +22,12 @@ export class CardsComponent implements OnInit{
   }
   ngOnInit(): void{
     this.cards = this.cardService.getCards();
-this.activatedRouter.queryParamMap.subscribe((params)=>{
+    this.activatedRouter.queryParamMap.subscribe((params)=>{
     const serch = params.get('serch')||'';
     this.cards = this.cardService.getActiveCard(serch);
   });
   }
 
 
-  addToCart(id: number){
-    const buyCard = this.cards.find((card)=>{
-      return card.id ===id;
-    });
-    if(buyCard){
-      this.cardService.moveToCart(buyCard);
-      this.cards = this.cards.filter((item: CardModel)=>{
-        return item.id !==id;
-      });
-    }
-  }
+  
 }

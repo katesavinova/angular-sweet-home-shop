@@ -21,5 +21,5 @@ export class PopUpComponent implements OnInit {
   popupClose():void{
     this.close.emit();
   }
-
+ 
 }
