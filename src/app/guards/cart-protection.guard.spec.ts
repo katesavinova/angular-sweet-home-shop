@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ArchiveGuard } from './archive.guard';
+import { CartProtectionGuard } from './cart-protection.guard';
 
-describe('ArchiveGuard', () => {
-  let guard: ArchiveGuard;
+describe('CartProtectionGuard', () => {
+  let guard: CartProtectionGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(ArchiveGuard);
+    guard = TestBed.inject(CartProtectionGuard);
   });
 
   it('should be created', () => {

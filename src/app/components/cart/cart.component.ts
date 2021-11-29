@@ -1,16 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { cardMock } from 'src/app/mock/card.mock';
 import { CardModel } from 'src/app/models/card.model';
 import { CartModel } from 'src/app/models/cart.model';
 import { CardsService } from 'src/app/services/cards.service';
 
 @Component({
-  selector: 'app-pop-up',
-  templateUrl: './pop-up.component.html',
-  styleUrls: ['./pop-up.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class PopUpComponent implements OnInit {
-  cards:CardModel[] = cardMock;
+export class CartComponent implements OnInit {
+cards:CardModel[] = cardMock;
   card: CardModel[]= [];
   constructor(private cardsService: CardsService) { }
 
@@ -21,5 +21,5 @@ export class PopUpComponent implements OnInit {
   popupClose():void{
     this.close.emit();
   }
- 
+
 }

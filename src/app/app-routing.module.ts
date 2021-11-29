@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CardDitailsComponent } from './components/card-ditails/card-ditails.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { PopUpComponent } from './components/pop-up/pop-up.component';
-import { ArchiveGuard } from './guards/archive.guard';
+import{CardDetailsComponent} from './components/card-details/card-details.component';
+import{CartComponent} from './components/cart/cart.component'
+import { CartProtectionGuard } from './guards/cart-protection.guard';
 
 const routes: Routes = [
   {path: 'home', component: CardsComponent},
-  {path: 'cart', component: PopUpComponent, canActivate: [ArchiveGuard]},
+  {path: 'cart', component: CartComponent},
   {path:'', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'card/:id', component: CardDitailsComponent},
+  {path: 'card/:id', component: CardDetailsComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

@@ -7,11 +7,9 @@ import {HttpClient} from "@angular/common/http"
   providedIn: 'root'
 })
 export class CardsService{
-  private ToCart: CardModel[]=[];
+  private toCart: CardModel[]=[];
   private activeCart: CardModel[] = cardMock;
-  constructor(private service: HttpClient){
-
-  }
+  
   getCards(): CardModel[]{
     return this.activeCart;
   }
@@ -22,7 +20,7 @@ export class CardsService{
     if(activeCard){
       return activeCard;
     }else{
-        const archivedCard = this.ToCart.find((item: CardModel)=>{
+        const archivedCard = this.toCart.find((item: CardModel)=>{
           return item.id === id;
       });
       return archivedCard ? archivedCard: null;
@@ -30,15 +28,13 @@ export class CardsService{
   }
 
   moveToCart(buyCard: CardModel): void{
-       this.ToCart.push({...buyCard, buy: true});
+       this.toCart.push({...buyCard, buy: true});
       this.activeCart = this.activeCart.filter((item: CardModel)=>{
-
-      console.log(this.ToCart);
         return item.id !== buyCard.id;
       });
   }
   getCartData(): CardModel[]{
-    return this.ToCart;
+    return this.toCart;
   }
   getActiveCard(serch:string = ''): CardModel[]{
     return this.activeCart.filter((item:CardModel)=>{

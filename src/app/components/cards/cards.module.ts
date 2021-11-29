@@ -6,13 +6,11 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { CardsComponent } from './cards.component';
 import { IntroComponent } from '../intro/intro.component';
-import { CardDitailsComponent } from '../card-ditails/card-ditails.component';
 
 @NgModule({
   declarations: [
    CardComponent,
-   CardsComponent,
-   CardDitailsComponent
+   CardsComponent
   ],
   imports: [
     BrowserModule,

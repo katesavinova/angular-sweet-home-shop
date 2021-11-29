@@ -8,11 +8,12 @@ import { CardsComponent } from './components/cards/cards.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IntroComponent } from './components/intro/intro.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { FormsModule } from '@angular/forms';
 import { CardsModule } from './components/cards/cards.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CardDitailsComponent } from './components/card-ditails/card-ditails.component';
+import { CartProtectionGuard } from './guards/cart-protection.guard';
+import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,9 @@ import { CardDitailsComponent } from './components/card-ditails/card-ditails.com
     HeaderComponent,
     IntroComponent,
     FooterComponent,
-    PopUpComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CardDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { CardDitailsComponent } from './components/card-ditails/card-ditails.com
     FormsModule,
     CardsModule
   ],
-  providers: [],
+  providers: [CartProtectionGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

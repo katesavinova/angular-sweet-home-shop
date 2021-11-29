@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  serch ='';
+  search ='';
   userLoggedIn=false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem('LoggedIn',String(this.userLoggedIn));
   }
   @Output() show: EventEmitter<void> = new EventEmitter<void>();
 
@@ -18,15 +19,15 @@ export class HeaderComponent implements OnInit {
     this.show.emit();
 
   }
-  onSerch():void{
+  onSearch():void{
     this.router.navigate(['/home'],{
       queryParams:{
-        serch:this.serch
+        serch:this.search
       }
     });
   }
   changeUserStatus(): void {
     this.userLoggedIn = !this.userLoggedIn;
-    localStorage.setItem('loggedIn', String(this.userLoggedIn));
+    localStorage.setItem('LoggedIn', String(this.userLoggedIn));
   }
 }

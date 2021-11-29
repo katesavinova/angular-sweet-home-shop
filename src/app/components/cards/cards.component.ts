@@ -13,9 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit{
-  Title ="Наши товары";
-
-  Cart: CartModel[]= cartMock;
+  title ="Наши товары";
   cards: CardModel[];
   constructor(private cardService: CardsService, private activatedRouter: ActivatedRoute){
 
