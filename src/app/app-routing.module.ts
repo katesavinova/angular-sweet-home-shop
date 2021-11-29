@@ -8,7 +8,7 @@ import { CartProtectionGuard } from './guards/cart-protection.guard';
 
 const routes: Routes = [
   {path: 'home', component: CardsComponent},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart', component: CartComponent, canActivate: [CartProtectionGuard]},
   {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path: 'card/:id', component: CardDetailsComponent},
   {path: '**', component: PageNotFoundComponent}
