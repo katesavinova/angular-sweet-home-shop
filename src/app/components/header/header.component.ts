@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -11,23 +11,18 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    localStorage.setItem('LoggedIn',String(this.userLoggedIn));
+    localStorage.setItem('loggedIn',String(this.userLoggedIn));
   }
-  @Output() show: EventEmitter<void> = new EventEmitter<void>();
 
-  showCart():void{
-    this.show.emit();
-
-  }
   onSearch():void{
     this.router.navigate(['/home'],{
       queryParams:{
-        serch:this.search
+        search:this.search
       }
     });
   }
   changeUserStatus(): void {
     this.userLoggedIn = !this.userLoggedIn;
-    localStorage.setItem('LoggedIn', String(this.userLoggedIn));
+    localStorage.setItem('loggedIn', String(this.userLoggedIn));
   }
 }

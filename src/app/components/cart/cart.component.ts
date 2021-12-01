@@ -10,16 +10,12 @@ import { CardsService } from 'src/app/services/cards.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-cards:CardModel[] = cardMock;
+  cards:CardModel[] = cardMock;
   card: CardModel[]= [];
   constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {
   this.card = this.cardsService.getCartData();
-  }
-  @Output() close: EventEmitter<void>= new EventEmitter<void>();
-  popupClose():void{
-    this.close.emit();
   }
 
 }

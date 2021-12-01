@@ -4,13 +4,13 @@ import { CardsComponent } from './components/cards/cards.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import{CardDetailsComponent} from './components/card-details/card-details.component';
 import{CartComponent} from './components/cart/cart.component'
-import { CartProtectionGuard } from './guards/cart-protection.guard';
+import { CartGuard } from './guards/cart.guard';
 
 const routes: Routes = [
   {path: 'home', component: CardsComponent},
-  {path: 'cart', component: CartComponent, canActivate: [CartProtectionGuard]},
-  {path:'', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'cart', component: CartComponent, canActivate: [CartGuard]},
   {path: 'card/:id', component: CardDetailsComponent},
+  {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
 

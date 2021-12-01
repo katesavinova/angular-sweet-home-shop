@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http"
 export class CardsService{
   private toCart: CardModel[]=[];
   private activeCart: CardModel[] = cardMock;
-  
+
   getCards(): CardModel[]{
     return this.activeCart;
   }
@@ -36,10 +36,10 @@ export class CardsService{
   getCartData(): CardModel[]{
     return this.toCart;
   }
-  getActiveCard(serch:string = ''): CardModel[]{
+  getActiveCard(search:string = ''): CardModel[]{
     return this.activeCart.filter((item:CardModel)=>{
-      return item.name.toLocaleLowerCase().includes(serch.toLocaleLowerCase())
-      || item.price.toLocaleLowerCase().includes(serch.toLocaleLowerCase());
+      return item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      || item.price.toLocaleLowerCase().includes(search.toLocaleLowerCase());
     });
   }
 }

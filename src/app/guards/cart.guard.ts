@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CartProtectionGuard implements CanActivate {
- canActivate(
+export class CartGuard implements CanActivate {
+  canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const loggedIn = localStorage.getItem('LoggedIn');
+      const loggedIn = localStorage.getItem('loggedIn');
       return loggedIn ? JSON.parse(loggedIn) : false;
   }
-  
+
 }

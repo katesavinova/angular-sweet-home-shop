@@ -8,10 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-app';
   value:boolean = false;
-  showCart(){
-    this.value = true;
-  }
-  closeCart(){
-    this.value = false;
-  }
+ 
 }
