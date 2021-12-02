@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { cardMock } from 'src/app/mock/card.mock';
 import { CardModel } from 'src/app/models/card.model';
-import { CartModel } from 'src/app/models/cart.model';
 import { CardsService } from 'src/app/services/cards.service';
 
 @Component({

@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { CardsModule } from './components/cards/cards.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
-import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { CartComponent } from './components/cart/cart.component';
     IntroComponent,
     FooterComponent,
     PageNotFoundComponent,
-    CardDetailsComponent,
-    CartComponent
+    CardDetailsComponent
   ],
   imports: [
     BrowserModule,
