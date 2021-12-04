@@ -9,7 +9,6 @@ import { CardsService } from 'src/app/services/cards.service';
 })
 export class CardComponent implements OnInit {
   @Input() card: CardModel;
-  @Output() add: EventEmitter<number> = new EventEmitter<number>();
   constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {

@@ -10,11 +10,11 @@ import { CardsService } from 'src/app/services/cards.service';
 })
 export class CartComponent implements OnInit {
   cards:CardModel[] = cardMock;
-  card: CardModel[]= [];
+  cartData: CardModel[]= [];
   constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {
-  this.card = this.cardsService.getCartData();
+  this.cartData = this.cardsService.getCartData();
   }
 
 }

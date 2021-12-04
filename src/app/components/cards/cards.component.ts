@@ -17,6 +17,7 @@ export class CardsComponent implements OnInit{
     const search = params.get('search')||'';
     this.cards = this.cardService.getActiveCard(search);
   });
+  
   }
 
 
