@@ -18,15 +18,8 @@ export class CardsService{
     });
      return product? product: null;
   }
-  getCartData(): CardModel[]{
-    return this.toCart;
-  }
-  moveToCart(buyCard: CardModel): void{
-    this.toCart.push({...buyCard, buy: true});
-      this.products = this.products.filter((item: CardModel)=>{
-        return item.id !== buyCard.id;
-      });
-  }
+  
+
 
   getActiveCard(search:string = ''): CardModel[]{
     return this.products.filter((item:CardModel)=>{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { cardMock } from 'src/app/mock/card.mock';
 import { CardModel } from 'src/app/models/card.model';
-import { CardsService } from 'src/app/services/cards.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +11,10 @@ import { CardsService } from 'src/app/services/cards.service';
 export class CartComponent implements OnInit {
   cards:CardModel[] = cardMock;
   cartData: CardModel[]= [];
-  constructor(private cardsService: CardsService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-  this.cartData = this.cardsService.getCartData();
+  this.cartData = this.cartService.getCartData();
   }
 
 }

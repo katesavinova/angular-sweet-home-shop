@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardModel } from 'src/app/models/card.model';
-import { CardsService } from 'src/app/services/cards.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-card',
@@ -9,11 +9,11 @@ import { CardsService } from 'src/app/services/cards.service';
 })
 export class CardComponent implements OnInit {
   @Input() card: CardModel;
-  constructor(private cardsService: CardsService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
   addToCart(){
-    this.cardsService.moveToCart(this.card);
+    this.cartService.moveToCart(this.card);
   }
 }
