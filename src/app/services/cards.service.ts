@@ -6,7 +6,6 @@ import { CardModel } from "../models/card.model";
   providedIn: 'root'
 })
 export class CardsService{
-  private toCart: CardModel[]=[];
   private products: CardModel[] = cardMock;
 
   getCards(): CardModel[]{
@@ -18,7 +17,7 @@ export class CardsService{
     });
      return product? product: null;
   }
-  
+
 
 
   getActiveCard(search:string = ''): CardModel[]{
