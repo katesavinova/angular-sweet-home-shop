@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { CardsModule } from './components/cards/cards.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { CardsService } from './services/cards.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { CardDetailsComponent } from './components/card-details/card-details.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CardsModule
+    CardsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

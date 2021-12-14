@@ -15,7 +15,7 @@ export class CardDetailsComponent implements OnInit {
   ngOnInit(): void {
    const id = this.activatedRoute.snapshot.params['id'];
     if(id){
-       this.card= this.cardService.getCard(+id);
+       //this.card= this.cardService.getCard(+id);
     }
   }
 }
