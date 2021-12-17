@@ -10,9 +10,24 @@ import { Injectable } from '@angular/core';
 export class CardsService{
   //private products: CardModel[] = cardMock;
   constructor(private httpClient: HttpClient){}
+
   public getProducts(): Observable<CardModel[]>{
-    return this.httpClient.get<CardModel[]>(url:'/home');
+    return this.httpClient.get<CardModel[]>('/home');
   }
+  //public getProductsWithIds(ids: number[]): Observable<CardModel[]> {
+
+    // return new Observable<CardModel[]>((s) => {
+    //   this.getProducts()
+    //     .pipe(
+    //       map((card) => cards.filter((card:CardModel) => ids.includes(card.id)))
+    //     )
+    //     .subscribe((card) => {
+    //       s.next(card);
+    //       s.complete();
+    //     });
+    // });
+ // }
+
   // getCards(): CardModel[]{
   //   return this.products;
   // }
