@@ -38,7 +38,7 @@ export class CardsService{
   //   });
   //    return product? product: null;
   // }
-  getActiveCard(search:string = ''): Observable<CardModel[]>{
+  public getActiveCard(search:string = ''): Observable<CardModel[]>{
     return new Observable<CardModel[]>((s) => {
       this.getProducts()
       .pipe(
@@ -51,7 +51,7 @@ export class CardsService{
         s.complete();
       });
     });
-  }
+ }
 
   // getActiveCard(search:string = ''): CardModel[]{
   //   return this.products.filter((item:CardModel)=>{
