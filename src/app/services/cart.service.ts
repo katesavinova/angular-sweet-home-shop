@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { cardMock } from "../mock/card.mock";
 import { CardModel } from "../models/card.model";
 
 @Injectable({
@@ -10,7 +9,7 @@ export class CartService{
 
   moveToCart(buyCard: CardModel): void{
     this.toCart.push({...buyCard, buy: true});
-      
+
   }
   getCartData(): CardModel[]{
     return this.toCart;
