@@ -56,5 +56,5 @@ app.get('/products',((req, res) =>{
   res.send(products)
 }))
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`app listening at http://localhost:${port}`);
 })
