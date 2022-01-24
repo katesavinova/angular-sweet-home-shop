@@ -15,11 +15,11 @@ export class CartService{
   moveToCart(buyCard: CardModel){
     //post запрос?
     //this.toCart.push({...buyCard, buy: true});
-    return this.http.post('/cart', buyCard);
+    return this.http.post('/api/cart', buyCard);
   }
     //get запрос?
   public getCartData(): Observable<CardModel[]>{
-    return this.http.get<CardModel[]>('/cart');
+    return this.http.get<CardModel[]>('/api/cart');
   }
   // getCartData(): CardModel[]{
   //   return this.toCart;

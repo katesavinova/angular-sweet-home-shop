@@ -15,7 +15,7 @@ export class CardsService{
   constructor(private httpClient: HttpClient){}
 
   public getProducts(): Observable<CardModel[]>{
-    return this.httpClient.get<CardModel[]>('/products');
+    return this.httpClient.get<CardModel[]>('/api/products');
   }
   public getProductsWithIds(ids: number[]): Observable<CardModel[]> {
     return new Observable<CardModel[]>((s) => {

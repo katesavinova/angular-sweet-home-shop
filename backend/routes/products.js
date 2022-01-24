@@ -1,6 +1,5 @@
 const express = require('express')
 const controller = require('../controller/cart')
 const router = express.Router()
-router.get('/api/', controller.getAllProducts)
-router.post('/api/', controller.addProduct)
+router.get('/api/', controller.get)
 module.exports = router

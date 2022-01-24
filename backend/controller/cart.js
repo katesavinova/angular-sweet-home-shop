@@ -22,9 +22,6 @@ module.exports.addProduct = async(product) =>{
       } else {
           throw new Error("Empty fields.");
       }
-  } else {
-      product.action = "increase";
-      return await this.changeQuantity(product);
-  }
+  } 
 }
 
