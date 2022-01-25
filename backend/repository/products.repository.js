@@ -16,9 +16,9 @@ const productsRepository = {
         };
         productsForCart.push(newProduct);
 
-        await writeJsonFile(FILE_PATH, productsForCart);
+        await writeJsonFile(FILE_PATH_CART, productsForCart);
 
-        return newUser;
+        return newProduct;
     }
 };
 
