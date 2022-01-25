@@ -8,9 +8,9 @@ router.get('/api/', async (req, res) => {
     res.json(products);
 });
 router.post('/api/', async (req, res) => {
-  const user = await productsRepository.add(req.body);
+const product = await productsRepository.add(req.body);
   res
       .status(201)
-      .json(user);
+      .json(product);
 });
 module.exports = router;
