@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const path = require('path');
 const productsRepository = require('../repository/products.repository');
 const router = new Router();
