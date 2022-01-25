@@ -1,5 +1,5 @@
 const path = require('path');
-const {readJsonFile, writeJsonFile} = require('../utils/file.utils');
+const productsRepository = require('../repository/products.repository');
 const router = new Router();
 
 router.get('/api/', async (_request, response) => {
