@@ -3,7 +3,7 @@ const path = require('path');
 const productsRepository = require('../repository/products.repository');
 const router = new Router();
 
-router.get('/api/', async (_request, response) => {
+router.get('/api/', async (request, response) => {
     const products = await productsRepository.getAll();
 });
 
