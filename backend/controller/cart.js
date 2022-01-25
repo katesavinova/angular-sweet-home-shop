@@ -1,14 +1,13 @@
 const { Router } = require('express');
-const path = require('path');
-const productsRepository = require('../repository/products.repository');
+const cartRepository = require('../repository/cart.repository');
 const router = new Router();
 
 router.get('/api/', async (request, response) => {
-    const products = await productsRepository.getAll();
+    await cartRepository.getAllCart();
 });
 
 router.post('/api/', async (request, response) => {
-    await productsRepository.add(request.body);
+    await cartRepository.add(request.body);
 });
 
 module.exports = router;

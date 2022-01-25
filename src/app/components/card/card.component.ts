@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { CardModel } from 'src/app/models/card.model';
 import { CartService } from 'src/app/services/cart.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-card',
@@ -14,6 +15,6 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
   addToCart(){
-    this.cartService.moveToCart(this.card);
-  }
+    this.cartService.moveToCart(this.card).subscribe();
+}
 }
