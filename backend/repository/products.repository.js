@@ -10,20 +10,16 @@ const productsRepository = {
     },
     async add(product){
         //добавление записи
-        const products = await this.getAllProducts();
+        const productsForCart = [];
+        const newProduct = {
+            ...product
+        };
+        productsForCart.push(newProduct);
 
-        let findIndex = products.findIndex((thing) => thing.name.toLowerCase() === product.name.toLowerCase());
+        await writeJsonFile(FILE_PATH, productsForCart);
 
-        if (findIndex === -1) {
-            if (product.name.trim() && product.price) {
-                products.push(product);
-                await writeJsonFile(FILE_PATH_CART, products);
-                return products;
-            } else {
-                throw new Error("Empty fields.");
-            }
-        }
-      }
+        return newUser;
+    }
 };
 
 module.exports = productsRepository;
