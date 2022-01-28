@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CardModel } from 'src/app/models/card.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Subject } from 'rxjs';
@@ -10,11 +10,17 @@ import { Subject } from 'rxjs';
 })
 export class CardComponent implements OnInit {
   @Input() card: CardModel;
+  @Output() transferToCards = new EventEmitter<CardModel>()
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
-  addToCart(){
-    this.cartService.moveToCart(this.card).subscribe();
-}
+  addToCart(card:CardModel){
+    this.transferToCards.emit(card);
+    // this.cartService.moveToCart(this.card).subscribe(
+    //   (byCart)=>{
+    //    // this.card=byCart;
+    //   }
+    // )
+  }
 }

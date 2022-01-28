@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 <div class="cards">
   <ng-container *ngFor = "let product of (products$ | async)" >
-    <app-card [card]="product"></app-card>
+    <app-card [card]="product" (transferToCards)="addToCart($event)"></app-card>
   </ng-container>
 </div>
