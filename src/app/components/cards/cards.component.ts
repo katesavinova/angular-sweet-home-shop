@@ -3,7 +3,7 @@ import { CardModel } from 'src/app/models/card.model';
 import { CardsService } from 'src/app/services/cards.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -13,10 +13,11 @@ export class CardsComponent implements OnInit{
   card: CardModel;
   title ="Наши товары";
   products$: Subject<CardModel[]> = new Subject();
+  private loadProducts$: Subscription = new Subscription();
 
   constructor(private cardService: CardsService,private cartService: CartService, private activatedRouter: ActivatedRoute){}
   ngOnInit(): void{
-   this.cardService.getProducts()
+    this.loadProducts$ = this.cardService.getProducts()
       .subscribe( (products)=>{
        this.products$.next(products);
       });
@@ -26,6 +27,10 @@ export class CardsComponent implements OnInit{
     const search = params.get('search')||'';
    // this.cards = this.cardService.getActiveCard(search);
    });
+
+  }
+  ngOnDestroy(): void {
+    this.loadProducts$.unsubscribe();
 
   }
   addToCart(card:CardModel){

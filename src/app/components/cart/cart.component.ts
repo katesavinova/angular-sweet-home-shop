@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { cardMock } from 'src/app/mock/card.mock';
 import { CardModel } from 'src/app/models/card.model';
 import { CartService } from 'src/app/services/cart.service';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-cart',
@@ -11,13 +12,14 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   cards:CardModel[] = cardMock;
   cartData: CardModel[]= [];
+  private loadCart: Subscription = new Subscription();
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getCartData().subscribe((data: CardModel[]) => this.cartData=data)
-    // this.cartProducts$.subscribe(cartProducts=>{
-    //   if(cartProducts) this.cartData = this.cartService.getCartData();
-    // })
-//this.cartProducts$.next(true);
+    this.loadCart = this.cartService.getCartData().subscribe((data: CardModel[]) => this.cartData=data)
+  }
+  ngOnDestroy(): void {
+    this.loadCart.unsubscribe();
   }
 }

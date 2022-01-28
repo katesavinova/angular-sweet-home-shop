@@ -17,10 +17,5 @@ export class CardComponent implements OnInit {
   }
   addToCart(card:CardModel){
     this.transferToCards.emit(card);
-    // this.cartService.moveToCart(this.card).subscribe(
-    //   (byCart)=>{
-    //    // this.card=byCart;
-    //   }
-    // )
   }
 }

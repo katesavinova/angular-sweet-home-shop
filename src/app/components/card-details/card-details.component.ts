@@ -13,9 +13,14 @@ export class CardDetailsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,private cardService: CardsService) {}
 
   ngOnInit(): void {
-   const id = this.activatedRoute.snapshot.params['id'];
-    if(id){
-       this.card= this.cardService.getCard(+id);
-    }
+     this.activatedRoute.params.subscribe(params=>{
+     const param = params["id"]
+
+      this.cardService.getProductWithId(param)
+        .subscribe((data) => {
+          this.card = data;
+        })
+
+    })
   }
 }
