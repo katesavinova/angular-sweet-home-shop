@@ -1,5 +1,4 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
-import { cardMock } from 'src/app/mock/card.mock';
 import { CardModel } from 'src/app/models/card.model';
 import { CartService } from 'src/app/services/cart.service';
 import {Subscription} from "rxjs";
@@ -10,7 +9,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cards:CardModel[] = cardMock;
+  
   cartData: CardModel[]= [];
   private loadCart: Subscription = new Subscription();
 

@@ -16,7 +16,7 @@ export class CardDetailsComponent implements OnInit {
      this.activatedRoute.params.subscribe(params=>{
      const param = params["id"]
 
-      this.cardService.getProductWithId(param)
+      this.cardService.getProductWithId(+param)
         .subscribe((data) => {
           this.card = data;
         })

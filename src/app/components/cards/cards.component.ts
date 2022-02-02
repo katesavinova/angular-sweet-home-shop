@@ -4,16 +4,19 @@ import { CardsService } from 'src/app/services/cards.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
+import { CardsModule } from './cards.module';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit{
-  card: CardModel;
+  cards: CardModel[];
+  card: CardModel[];
   title ="Наши товары";
   products$: Subject<CardModel[]> = new Subject();
   private loadProducts$: Subscription = new Subscription();
+  private activeCard$: Subscription = new Subscription();
 
   constructor(private cardService: CardsService,private cartService: CartService, private activatedRouter: ActivatedRoute){}
   ngOnInit(): void{
@@ -22,16 +25,19 @@ export class CardsComponent implements OnInit{
        this.products$.next(products);
       });
 
-   // this.cards = this.cardService.getCards();
-    this.activatedRouter.queryParamMap.subscribe((params)=>{
-    const search = params.get('search')||'';
-   // this.cards = this.cardService.getActiveCard(search);
+
+   this.activeCard$ = this.activatedRouter.queryParamMap.subscribe((params)=>{
+      const search = params.get('search')||'';
+      this.cardService.getActiveCard(search).subscribe(
+        (data:any)=>{
+          this.cards=data
+        })
    });
 
   }
   ngOnDestroy(): void {
     this.loadProducts$.unsubscribe();
-
+    this.activeCard$.unsubscribe();
   }
   addToCart(card:CardModel){
     this.cartService.moveToCart(card).subscribe(
