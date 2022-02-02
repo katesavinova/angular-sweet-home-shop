@@ -14,7 +14,7 @@ export class CardsComponent implements OnInit{
   cards: CardModel[];
   card: CardModel[];
   title ="Наши товары";
-  products$: Subject<CardModel[]> = new Subject();
+  products$: Subject<CardModel[]|null> = new Subject();
   private loadProducts$: Subscription = new Subscription();
   private activeCard$: Subscription = new Subscription();
 
@@ -29,8 +29,8 @@ export class CardsComponent implements OnInit{
    this.activeCard$ = this.activatedRouter.queryParamMap.subscribe((params)=>{
       const search = params.get('search')||'';
       this.cardService.getActiveCard(search).subscribe(
-        (data:any)=>{
-          this.cards=data
+        (products:CardModel[]|null)=>{
+          this.products$.next(products);
         })
    });
 
