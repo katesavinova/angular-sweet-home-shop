@@ -20,18 +20,20 @@ export class CardsComponent implements OnInit{
 
   constructor(private cardService: CardsService,private cartService: CartService, private activatedRouter: ActivatedRoute){}
   ngOnInit(): void{
-    this.loadProducts$ = this.cardService.getProducts()
-      .subscribe( (products)=>{
-       this.products$.next(products);
-      });
+
 
 
    this.activeCard$ = this.activatedRouter.queryParamMap.subscribe((params)=>{
       const search = params.get('search')||'';
-      this.cardService.getActiveCard(search).subscribe(
+      if(search){
+         this.cardService.getActiveCard(search).subscribe(
         (products:CardModel[]|null)=>{
           this.products$.next(products);
-        })
+        })}
+        else  this.loadProducts$ = this.cardService.getProducts()
+        .subscribe( (products)=>{
+         this.products$.next(products);
+        });
    });
 
   }
