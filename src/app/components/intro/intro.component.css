@@ -4,7 +4,6 @@
   background-size: cover;
   background-position: center;
   height: 450px;
-  width: 100vw;
   padding: 4% 18%;
   background-repeat: no-repeat;
 }
@@ -27,7 +26,6 @@
   }
   .intro p {
     width: 80%;
-    font-size: 20px;
     font-weight: 200;
     line-height: 2;
   }
