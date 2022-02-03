@@ -38,4 +38,13 @@
   padding: .7em 1.5em;
   margin-top: 80%;
   }
-
+  @media (max-width: 800px){
+    .card-details{
+      position: fixed;
+      top: 10%;
+      left: 5%;
+      width: 80%;
+      height: 60%;
+      padding: 5%;
+    }
+  }

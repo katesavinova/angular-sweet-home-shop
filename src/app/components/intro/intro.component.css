@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: center;
   height: 450px;
+  width: 100vw;
   padding: 4% 18%;
   background-repeat: no-repeat;
 }
@@ -18,4 +19,21 @@
   padding-top: 20%;
   font-size: 40px;
   letter-spacing: 6px;
+}
+@media (max-width: 800px) {
+  .intro {
+    background-position: left;
+    padding: 1%;
+  }
+  .intro p {
+    width: 80%;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 2;
+  }
+  .intro h2 {
+    padding-top: 25%;
+    font-size: 34px;
+    letter-spacing: 4px;
+  }
 }
