@@ -8,9 +8,10 @@
   margin: 0px 17%;
 }
 .header-logo {
-  font-size: 18px;
+  font-size: 24px;
   color: #dfb729;
   font-weight: 600;
+  margin-top: 10px;
 }
 .icon-cart{
   float: right;
